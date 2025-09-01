@@ -206,50 +206,273 @@ st.set_page_config(
 st.markdown("""
 <style>
     .main-header {
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         padding: 2rem;
-        border-radius: 10px;
+        border-radius: 15px;
         color: white;
         text-align: center;
         margin-bottom: 2rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
-    .agent-card {
-        background: #f8f9fa;
+    .agent-card-leadership {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
         padding: 1.5rem;
-        border-radius: 10px;
-        border-left: 4px solid #667eea;
+        border-radius: 15px;
+        border-left: 5px solid #ff6b6b;
         margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(255,107,107,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-marketing {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #00d4aa;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(0,212,170,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-personal {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #ff8a80;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(255,138,128,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-content {
+        background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #4facfe;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(79,172,254,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-funding {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #fa709a;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(250,112,154,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-spiritual {
+        background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #b19cd9;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(177,156,217,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-analytics {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #667eea;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(102,126,234,0.2);
+        color: white;
+        transition: transform 0.2s ease;
+    }
+    .agent-card-research {
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #f6d365;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(246,211,101,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-finance {
+        background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #96fbc4;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(150,251,196,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-media {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #ff9a9e;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(255,154,158,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-development {
+        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #84fab0;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(132,250,176,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-business {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #ff8a65;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(255,138,101,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-ecommerce {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #17ead9;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(23,234,217,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-healthcare {
+        background: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #22c1c3;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(34,193,195,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-sales {
+        background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #ff6b6b;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(255,107,107,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-psychology {
+        background: linear-gradient(135deg, #c471ed 0%, #f64f59 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #c471ed;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(196,113,237,0.2);
+        color: white;
+        transition: transform 0.2s ease;
+    }
+    .agent-card-ai {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #667eea;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(102,126,234,0.2);
+        color: white;
+        transition: transform 0.2s ease;
+    }
+    .agent-card-language {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #f093fb;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(240,147,251,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-realestate {
+        background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #4ecdc4;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(78,205,196,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card-scheduling {
+        background: linear-gradient(135deg, #fce38a 0%, #f38181 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 5px solid #fce38a;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(252,227,138,0.2);
+        transition: transform 0.2s ease;
+    }
+    .agent-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
     .metric-card {
-        background: white;
+        background: linear-gradient(135deg, #ffefd5 0%, #ffefba 100%);
         padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         text-align: center;
+        border: 1px solid #f0d000;
     }
     .call-status-active {
-        background: #d4edda;
+        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
         color: #155724;
         padding: 1rem;
-        border-radius: 8px;
-        border: 1px solid #c3e6cb;
+        border-radius: 12px;
+        border: 2px solid #28a745;
+        box-shadow: 0 4px 15px rgba(40,167,69,0.2);
     }
     .call-status-inactive {
-        background: #f8d7da;
+        background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
         color: #721c24;
         padding: 1rem;
-        border-radius: 8px;
-        border: 1px solid #f5c6cb;
+        border-radius: 12px;
+        border: 2px solid #dc3545;
+        box-shadow: 0 4px 15px rgba(220,53,69,0.2);
     }
     .secrets-info {
-        background: #e3f2fd;
-        padding: 1rem;
-        border-radius: 8px;
-        border-left: 4px solid #2196f3;
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 5px solid #2196f3;
         margin: 1rem 0;
+        box-shadow: 0 4px 15px rgba(33,150,243,0.1);
+    }
+    .stButton > button {
+        border-radius: 8px;
+        border: none;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    .stButton > button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(102,126,234,0.3);
     }
 </style>
 """, unsafe_allow_html=True)
+
+# Function to get card CSS class based on category
+def get_card_class(category):
+    category_map = {
+        "Leadership": "agent-card-leadership",
+        "Marketing": "agent-card-marketing", 
+        "Personal Development": "agent-card-personal",
+        "Content Creation": "agent-card-content",
+        "Funding": "agent-card-funding",
+        "Spiritual": "agent-card-spiritual",
+        "Analytics": "agent-card-analytics",
+        "Research": "agent-card-research",
+        "Finance": "agent-card-finance",
+        "Media": "agent-card-media",
+        "Development": "agent-card-development",
+        "Business": "agent-card-business",
+        "E-commerce": "agent-card-ecommerce",
+        "Healthcare": "agent-card-healthcare",
+        "Sales": "agent-card-sales",
+        "Psychology": "agent-card-psychology",
+        "AI": "agent-card-ai",
+        "Language": "agent-card-language",
+        "Real Estate": "agent-card-realestate",
+        "Scheduling": "agent-card-scheduling"
+    }
+    return category_map.get(category, "agent-card-content")
 
 # Initialize session state
 def initialize_session_state():
@@ -588,8 +811,9 @@ with tab1:
         
         with col1 if i % 2 == 0 else col2:
             with st.container():
+                card_class = get_card_class(agent_info['category'])
                 st.markdown(f"""
-                <div class="agent-card">
+                <div class="{card_class}">
                     <h3>🤖 {agent_name}</h3>
                     <p><strong>Category:</strong> {agent_info['category']}</p>
                     <p><strong>Description:</strong> {agent_info['description']}</p>
