@@ -15,7 +15,7 @@ from collections import defaultdict
 import uuid
 
 # Hardcoded VAPI API Key
-VAPI_API_KEY = "be55f3ed-dde7-4cc1-8ac4-be6d1efd30bc"  # Replace with your actual API key
+VAPI_API_KEY = ""  # Replace with your actual API key
 
 # All AI Agents with their Assistant IDs
 AI_AGENTS = {
